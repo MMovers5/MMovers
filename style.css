@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.logopic{
+float:right
+}   
+
+
+.sub-banner-content {
+    white-space: nowrap;
+    animation: marquee 18s linear infinite;
+    font-size: x-large;
+}
+
+@keyframes marquee {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+
+
+
+body {
+    background: black;
+    color: white;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+p{
+    color:white;
+}
+
+/* Header / Ribbon */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 42px;
+    margin-right: 10px;
+}
+
+/* Navigation */
+.nav button {
+    background: none;
+    border: none;
+    color: white;
+    margin-left: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav button::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: white;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: 0.3s;
+}
+
+/* Container line */
+.slide-underline {
+  position: relative;
+  width: 100%;
+  height: 4px;                 /* thickness of the underline */
+  background: transparent;     /* base is transparent; only the animated bar is visible */
+  overflow: hidden;
+}
+
+/* The animated bar */
+.slide-underline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: white; /* color of the line */
+  transform: scaleX(0);         /* start hidden */
+  transform-origin: left;       /* grow from left → right */
+  animation: drawLine 1.2s ease-out forwards; /* forwards keeps final state */
+}
+
+/* Keyframes to slide/grow across */
+@keyframes drawLine {
+  to { transform: scaleX(1); }
+}
+
+
+.nav button:hover::after {
+    width: 100%;
+}
+
+/* Pages */
+main {
+    padding: 80px 15%;
+    margin-top:-30px;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+    animation: fadeIn 0.8s ease;
+}
+
+/* Jumbotron */
+.jumbotron {
+    padding: 120px 20px;
+    text-align: center;
+  background-color: darkgrey;
+   color:white;
+}
+
+.jumbotron h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.jumbotron p {
+    color: white;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* Images */
+.image-row {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.animated-img {
+    width: 300px;
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: imageFade 1s forwards;
+}
+
+/* Text Animation */
+.animate {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: textFade 1s forwards;
+}
+
+/* Banner */
+.banner {
+    margin-top: 80px;
+}
+
+.banner-img {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    opacity: 0;
+    animation: bannerFade 1.5s forwards;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes textFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes imageFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bannerFade {
+    to { opacity: 1; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    main {
+        padding: 60px 10%;
+    }
+
+    .jumbotron h1 {
+        font-size: 2.5rem;
+    }
+}
+
+
+
+@media (max-width: 600px) {
+
+  /* Global spacing */
+  body {
+    font-size: 15px;
+  }
+
+  /* Header */
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 20px;
+    gap: 15px;
+  }
+
+  .logo {
+    justify-content: center;
+  }
+
+  .logo img {
+    width: 36px;
+    margin-right: 8px;
+  }
+
+  /* Navigation */
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .nav button {
+    margin-left: 0;
+    font-size: 0.95rem;
+  }
+
+  /* Main container */
+  main {
+    padding: 40px 20px;
+    margin-top: 0;
+  }
+
+  /* Marquee text */
+  .sub-banner-content {
+    font-size: 1rem;
+    animation-duration: 22s;
+  }
+
+  /* Jumbotron */
+  .jumbotron {
+    padding: 70px 20px;
+  }
+
+  .jumbotron h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .jumbotron p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  /* Images */
+  .image-row {
+    gap: 15px;
+    margin-top: 30px;
+  }
+
+  .animated-img {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* Banner */
+  .banner-img {
+    height: 35vh;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 0.85rem;
+    padding: 20px;
+  }
+
+  /* Floating logo image */
+  .logopic {
+    float: none;
+    display: block;
+    margin: auto;
+  }
+}
