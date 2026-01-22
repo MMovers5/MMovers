@@ -1,9 +1,30 @@
+/* Reset and Box Sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Fixed Width Container */
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    min-width: 1200px; /* Prevent shrinking */
+}
+
+/* Global Styles */
+body {
+    background: black;
+    color: white;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    overflow-x: auto; /* Allow horizontal scroll */
+}
+
+p {
+    color: white;
+}
+
+/* Buttons */
 .cta-btn {
     display: inline-block;
     padding: 16px 36px;
@@ -14,7 +35,7 @@
     border-radius: 50px;
     text-decoration: none;
     letter-spacing: 0.5px;
-   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6); /* Black shadow */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -23,50 +44,51 @@
     box-shadow: white;
 }
 
-/* Target all services headings */
+/* Section Titles */
 #services h1,
 #services h2 {
     color: white !important;
 }
 
-  
-        div.section {
-            padding: 80px 20px;
-            text-align: center;
-            position: relative;
-        }
+/* Sections */
+div.section {
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+}
 
-        /* Hero Div */
-        #hero {            
-    background: url('/truck.png') no-repeat center center / cover;
-     color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100vh;
-        }
+/* Hero Section */
+#hero {
+    background: url('truck.png') no-repeat center center / cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
 
-        #hero h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-        }
+#hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
 
-        #hero p {
-            font-size: 1.2em;
-            margin-bottom: 40px;
-        }
+#hero p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
 
-        #hero a {
-            display: inline-block;
-            padding: 15px 30px;
-            font-size: 1em;
-            color: white;
-            background-color: #ff5722;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        #hero::before {
+#hero a {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1em;
+    color: white;
+    background-color: #ff5722;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#hero::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -78,39 +100,39 @@
     z-index: 1;
 }
 
+#hero a:hover {
+    background-color: #e64a19;
+}
 
-        /* Social Media */
-        #social {
-            background-color: #111;
-            color: white;
-             margin-top: 15px;
-        }
+/* Social Section */
+#social {
+    background-color: #111;
+    color: white;
+    margin-top: 15px;
+}
 
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
-        }
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
 
-        .social-icons a {
-            color: white;
-            font-size: 2.2em;
-            transition: transform 0.3s, color 0.3s;
-        }
+.social-icons a {
+    color: white;
+    font-size: 2.2em;
+    transition: transform 0.3s, color 0.3s;
+}
 
-        .social-icons a:hover {
-            transform: translateY(-5px);
-            color: #ff5722;
-        }
-        #hero a:hover {
-            background-color: #e64a19;
-        }
+.social-icons a:hover {
+    transform: translateY(-5px);
+    color: #ff5722;
+}
 
 /* Services Section */
 #services {
-    position: relative; /* needed for overlay */
-    background: url('/cartoon.png') no-repeat center center/cover;
+    position: relative;
+    background: url('cartoon.png') no-repeat center center/cover;
     color: white;
     overflow: hidden;
     margin-top: 20px;
@@ -121,25 +143,21 @@
 #services::before {
     content: "";
     position: absolute;
-    inset: 0; /* top:0; right:0; bottom:0; left:0; */
-    background-color: rgba(0, 0, 0, 0.6); /* overlay */
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: 0;
 }
 
-/* Make content appear above overlay */
 #services .section-content {
     position: relative;
     z-index: 1;
 }
 
-/* Heading */
 #services h2 {
-    color: white;
     font-size: 2.5em;
     margin-bottom: 40px;
 }
 
-/* Services Grid */
 #services .services-container {
     display: flex;
     flex-wrap: wrap;
@@ -169,56 +187,57 @@
     font-size: 1em;
 }
 
+/* Contact Section */
+#contact {
+    background-color: black;
+    color: white;
+}
 
-        /* Contact Div */
-        #contact {
-            background-color: black;
-            color: white;
-        }
+#contact h2 {
+    margin-bottom: 20px;
+}
 
-        #contact h2 {
-            margin-bottom: 20px;
-        }
+#contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-        #contact form {
-            max-width: 600px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+#contact input, #contact textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
 
-        #contact input, #contact textarea {
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1em;
-        }
+#contact button {
+    padding: 15px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-        #contact button {
-            padding: 15px;
-            border: none;
-            background-color: black;
-            color: white;
-            font-size: 1em;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+#contact button:hover {
+    background-color: white;
+    color: black;
+}
 
-        #contact button:hover {
-            background-color: white;
-            color:black;
-        }
-.logopic{
-float:right
-}   
+/* Floating Logo */
+.logopic {
+    float: right;
+}
 
-
+/* Form Styles */
 .form-wrapper {
     max-width: 800px;
     margin: auto;
-  background-color: darkgrey;
+    background-color: darkgrey;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -230,7 +249,6 @@ float:right
     gap: 20px;
 }
 
-/* Floating label fields */
 .form-field {
     position: relative;
 }
@@ -283,18 +301,17 @@ float:right
     grid-column: span 2;
 }
 
-/* Checkboxes */
 .checkbox-field {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* align everything to left */
+    align-items: flex-start;
 }
 
 .checkbox-field label.title {
     font-weight: 600;
     margin-bottom: 6px;
-    text-align: left; /* ensure label is left-aligned */
-      color: white;
+    text-align: left;
+    color: white;
 }
 
 .checkbox-group {
@@ -306,10 +323,9 @@ float:right
 .checkbox-group label {
     font-weight: normal;
     cursor: pointer;
-        color: white;
+    color: white;
 }
 
-/* Buttons */
 .button-row {
     display: flex;
     justify-content: flex-end;
@@ -329,14 +345,14 @@ button {
 button:hover {
     background-color: #5a6268;
     color:white;
-    
 }
 
+/* Marquee Text */
 .sub-banner-content {
     white-space: nowrap;
     animation: marquee 18s linear infinite;
     font-size: x-large;
-     font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     margin-top: 25px;
 }
@@ -346,26 +362,13 @@ button:hover {
     to { transform: translateX(-100%); }
 }
 
-
-
-
-body {
-    background: black;
-    color: white;
-    font-family: 'Segoe UI', Arial, sans-serif;
-}
-p{
-    color:white;
-}
-
 /* Header / Ribbon */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-     font-family: 'Montserrat', sans-serif;
-    
+    font-family: 'Montserrat', sans-serif;
 }
 
 .logo {
@@ -385,7 +388,7 @@ p{
     color: white;
     margin-left: 30px;
     font-size: 1rem;
-     font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     cursor: pointer;
     position: relative;
@@ -402,34 +405,30 @@ p{
     transition: 0.3s;
 }
 
-/* Container line */
 .slide-underline {
-  position: relative;
-  width: 100%;
-  height: 4px;                 /* thickness of the underline */
-  background: transparent;     /* base is transparent; only the animated bar is visible */
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    overflow: hidden;
 }
 
-/* The animated bar */
 .slide-underline::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background: white; /* color of the line */
-  transform: scaleX(0);         /* start hidden */
-  transform-origin: left;       /* grow from left → right */
-  animation: drawLine 1.2s ease-out forwards; /* forwards keeps final state */
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: drawLine 1.2s ease-out forwards;
 }
 
-/* Keyframes to slide/grow across */
 @keyframes drawLine {
-  to { transform: scaleX(1); }
+    to { transform: scaleX(1); }
 }
-
 
 .nav button:hover::after {
     width: 100%;
@@ -454,19 +453,18 @@ main {
 .jumbotron {
     padding: 120px 20px;
     text-align: center;
-  background-color: darkgrey;
-   color:white;
+    background-color: darkgrey;
+    color:white;
 }
 
 .jumbotron h1 {
     margin-bottom: 25px;
-    text-align: center; /* align left */
+    text-align: center;
     font-size: 40px;
     color: white;
-      font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     margin-left: 100px;
-    
 }
 
 .jumbotron p {
@@ -545,109 +543,19 @@ footer {
     to { opacity: 1; }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    main {
-        padding: 60px 10%;
+/* MOBILE OVERRIDE - Keep Desktop Layout */
+@media (max-width: 1200px) {
+    body, h1, h2, h3, p, .cta-btn, .jumbotron h1, .jumbotron p,
+    .animated-img, .banner-img, .logopic img,
+    main, .section, .jumbotron, .form-wrapper,
+    .header, .logo, .nav, .nav button {
+        font-size: inherit !important;
+        width: auto !important;
+        max-width: none !important;
+        padding: inherit !important;
+        margin: inherit !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
     }
-
-    .jumbotron h1 {
-        font-size: 2.5rem;
-    }
-}
-
-
-
-@media (max-width: 600px) {
-
-  /* Global spacing */
-  body {
-    font-size: 15px;
-  }
-
-  /* Header */
-  .header {
-    flex-direction: column;
-    align-items: center;
-    padding: 15px 20px;
-    gap: 15px;
-  }
-
-  .logo {
-    justify-content: center;
-  }
-
-  .logo img {
-    width: 36px;
-    margin-right: 8px;
-  }
-
-  /* Navigation */
-  .nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .nav button {
-    margin-left: 0;
-    font-size: 0.95rem;
-  }
-
-  /* Main container */
-  main {
-    padding: 40px 20px;
-    margin-top: 0;
-  }
-
-  /* Marquee text */
-  .sub-banner-content {
-    font-size: 1rem;
-    animation-duration: 22s;
-  }
-
-  /* Jumbotron */
-  .jumbotron {
-    padding: 70px 20px;
-  }
-
-  .jumbotron h1 {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-
-  .jumbotron p {
-    font-size: 1rem;
-    max-width: 100%;
-  }
-
-  /* Images */
-  .image-row {
-    gap: 15px;
-    margin-top: 30px;
-  }
-
-  .animated-img {
-    width: 100%;
-    max-width: 320px;
-  }
-
-  /* Banner */
-  .banner-img {
-    height: 35vh;
-  }
-
-  /* Footer */
-  footer {
-    font-size: 0.85rem;
-    padding: 20px;
-  }
-
-  /* Floating logo image */
-  .logopic {
-    float: none;
-    display: block;
-    margin: auto;
-  }
 }
