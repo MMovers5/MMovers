@@ -1,30 +1,31 @@
-/* Reset and Box Sizing */
+/* ================= Reset & Box Sizing ================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Fixed Width Container */
+/* ================= Container ================= */
 .container {
     width: 1200px;
+    min-width: 1200px; /* Prevent shrinking on mobile */
     margin: 0 auto;
-    min-width: 1200px; /* Prevent shrinking */
+    overflow-x: auto; /* Allow horizontal scroll on small screens */
 }
 
-/* Global Styles */
+/* ================= Global Styles ================= */
 body {
     background: black;
     color: white;
     font-family: 'Segoe UI', Arial, sans-serif;
-    overflow-x: auto; /* Allow horizontal scroll */
+    overflow-x: auto; /* Ensure horizontal scroll on mobile */
 }
 
 p {
     color: white;
 }
 
-/* Buttons */
+/* ================= Buttons ================= */
 .cta-btn {
     display: inline-block;
     padding: 16px 36px;
@@ -44,20 +45,20 @@ p {
     box-shadow: white;
 }
 
-/* Section Titles */
+/* ================= Section Titles ================= */
 #services h1,
 #services h2 {
     color: white !important;
 }
 
-/* Sections */
+/* ================= Sections ================= */
 div.section {
     padding: 80px 20px;
     text-align: center;
     position: relative;
 }
 
-/* Hero Section */
+/* ================= Hero Section ================= */
 #hero {
     background: url('/truck.png') no-repeat center center / cover;
     color: white;
@@ -104,7 +105,7 @@ div.section {
     background-color: #e64a19;
 }
 
-/* Social Section */
+/* ================= Social Section ================= */
 #social {
     background-color: #111;
     color: white;
@@ -129,7 +130,7 @@ div.section {
     color: #ff5722;
 }
 
-/* Services Section */
+/* ================= Services Section ================= */
 #services {
     position: relative;
     background: url('/cartoon.png') no-repeat center center/cover;
@@ -160,7 +161,7 @@ div.section {
 
 #services .services-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Keep horizontal layout */
     justify-content: center;
     gap: 30px;
 }
@@ -169,7 +170,7 @@ div.section {
     background-color: rgba(0, 0, 0, 0.6);
     padding: 30px;
     border-radius: 10px;
-    width: 250px;
+    width: 250px; /* fixed width */
 }
 
 #services .service i {
@@ -187,7 +188,7 @@ div.section {
     font-size: 1em;
 }
 
-/* Contact Section */
+/* ================= Contact Section ================= */
 #contact {
     background-color: black;
     color: white;
@@ -228,12 +229,12 @@ div.section {
     color: black;
 }
 
-/* Floating Logo */
+/* ================= Floating Logo ================= */
 .logopic {
     float: right;
 }
 
-/* Form Styles */
+/* ================= Form Styles ================= */
 .form-wrapper {
     max-width: 800px;
     margin: auto;
@@ -317,7 +318,7 @@ div.section {
 .checkbox-group {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .checkbox-group label {
@@ -347,7 +348,7 @@ button:hover {
     color:white;
 }
 
-/* Marquee Text */
+/* ================= Marquee Text ================= */
 .sub-banner-content {
     white-space: nowrap;
     animation: marquee 18s linear infinite;
@@ -362,7 +363,7 @@ button:hover {
     to { transform: translateX(-100%); }
 }
 
-/* Header / Ribbon */
+/* ================= Header / Ribbon ================= */
 .header {
     display: flex;
     justify-content: space-between;
@@ -381,36 +382,30 @@ button:hover {
     margin-right: 10px;
 }
 
-/* Navigation */
+/* ================= Navigation with Slide Underline ================= */
 .nav button {
+    position: relative; /* required for slide underline */
     background: none;
     border: none;
     color: white;
-    margin-left: 30px;
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+    margin-left: 30px;
+    padding-bottom: 4px; /* space for underline */
     cursor: pointer;
-    position: relative;
 }
 
-.nav button::after {
-    content: '';
-    width: 0;
-    height: 2px;
-    background: white;
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    transition: 0.3s;
-}
 
+
+/* Full-page Slide Underline */
 .slide-underline {
     position: relative;
     width: 100%;
-    height: 4px;
-    background: transparent;
+    height: 4px; /* line thickness */
     overflow: hidden;
+    background: transparent;
+    margin: 0 auto; /* center if needed */
 }
 
 .slide-underline::before {
@@ -420,21 +415,36 @@ button:hover {
     top: 0;
     height: 100%;
     width: 100%;
-    background: white;
+    background-color: white; /* visible line */
     transform: scaleX(0);
     transform-origin: left;
-    animation: drawLine 1.2s ease-out forwards;
+    animation: drawLine 1.5s ease-out forwards;
 }
+
+@keyframes drawLine {
+    to {
+        transform: scaleX(1);
+    }
+}
+
 
 @keyframes drawLine {
     to { transform: scaleX(1); }
 }
 
+/* Optional hover underline */
 .nav button:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
     width: 100%;
+    background: white;
+    transition: width 0.3s ease;
 }
 
-/* Pages */
+/* ================= Pages ================= */
 main {
     padding: 80px 15%;
     margin-top:-30px;
@@ -449,7 +459,7 @@ main {
     animation: fadeIn 0.8s ease;
 }
 
-/* Jumbotron */
+/* ================= Jumbotron ================= */
 .jumbotron {
     padding: 120px 20px;
     text-align: center;
@@ -474,11 +484,11 @@ main {
     margin: auto;
 }
 
-/* Images */
+/* ================= Images ================= */
 .image-row {
     display: flex;
     gap: 15px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* keep horizontal on mobile */
     justify-content: center;
     margin-top: 10px;
 }
@@ -491,7 +501,7 @@ main {
     animation: imageFade 1s forwards;
 }
 
-/* Text Animation */
+/* ================= Text Animation ================= */
 .animate {
     opacity: 0;
     transform: translateY(20px);
@@ -499,7 +509,7 @@ main {
     color: white;
 }
 
-/* Banner */
+/* ================= Banner ================= */
 .banner {
     margin-top: 80px;
 }
@@ -512,14 +522,14 @@ main {
     animation: bannerFade 1.5s forwards;
 }
 
-/* Footer */
+/* ================= Footer ================= */
 footer {
     text-align: center;
     padding: 30px;
     color: #666;
 }
 
-/* Animations */
+/* ================= Animations ================= */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -543,19 +553,5 @@ footer {
     to { opacity: 1; }
 }
 
-/* MOBILE OVERRIDE - Keep Desktop Layout */
-@media (max-width: 1200px) {
-    body, h1, h2, h3, p, .cta-btn, .jumbotron h1, .jumbotron p,
-    .animated-img, .banner-img, .logopic img,
-    main, .section, .jumbotron, .form-wrapper,
-    .header, .logo, .nav, .nav button {
-        font-size: inherit !important;
-        width: auto !important;
-        max-width: none !important;
-        padding: inherit !important;
-        margin: inherit !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-    }
-}
+/* ================= MOBILE ================= */
+/* No mobile overrides – keep desktop layout on all screen sizes */
