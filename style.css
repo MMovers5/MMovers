@@ -59,7 +59,7 @@ div.section {
 
 /* Hero Section */
 #hero {
-    background: url('truck.png') no-repeat center center / cover;
+    background: url('/truck.png') no-repeat center center / cover;
     color: white;
     display: flex;
     flex-direction: column;
@@ -132,7 +132,7 @@ div.section {
 /* Services Section */
 #services {
     position: relative;
-    background: url('cartoon.png') no-repeat center center/cover;
+    background: url('/cartoon.png') no-repeat center center/cover;
     color: white;
     overflow: hidden;
     margin-top: 20px;
