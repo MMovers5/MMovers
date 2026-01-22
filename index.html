@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="MMlogo.png">
     <link rel="stylesheet" href="style.css">
-</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    </head>
 <body>
 
 <header class="header">
@@ -31,25 +33,56 @@
 <main>
 
 <!-- HOME -->
-   <div class="logopic">
-        <img src="MMlogo.png" style="width:150px;" alt="Mountain Movers Logo">
-
-    </div>
 <section id="home" class="page active">
-  
-    <div class="jumbotron">
-        <h1 class="animate">What's the Move?</h1>
-        <p class="animate">
-            At Moving Mountains, we specialize in professional TV mounting and moving services.
-            Our expert team ensures your electronics are securely installed and your belongings
-            are transported with care. Let us take the stress out of your next move or installation!
-        </p>
-    </div>
+       <!-- Hero Div -->
+    <div id="hero" class="section">
+        <h1 >Welcome to Our Company</h1>
+        <p>Your trusted partner for professional services.</p>
+        <button class="cta-btn" onclick="showPage('contact')">Contact Us</button>
 
-    <div class="image-row">
-        <img src="MMlogo.png"  class="animated-img">
-       
-        
+    </div>
+    
+   <!-- Services Div -->
+    <div id="services" class="section">
+       <div class="section-content">
+        <h2>Our Services</h2>
+        <div class="services-container">
+            <div class="service">
+                <i class="fas fa-truck"></i>
+                <h3>Moving</h3>
+                <p>We provide reliable and efficient moving services for homes and businesses. Whether you’re relocating locally or moving items within the same building, 
+                our team handles your belongings with care and professionalism. We assist with loading, unloading, furniture placement, and heavy lifting to ensure a smooth, stress‑free move from start to finish.</p>
+            </div>
+            <div class="service">
+                <i class="fas fa-tv"></i>
+                <h3>TV Mounting</h3>
+                <p>Our TV mounting services ensure your television is securely and professionally installed for the best viewing experience. We mount TVs on drywall, brick, 
+                or concrete, conceal cables when possible, and ensure proper placement and leveling. Safety, precision, and clean results are always our top priorities.</p>
+            </div>
+            <div class="service">
+                <i class="fas fa-screwdriver"></i>
+                <h3>Installations</h3>
+                <p>We offer general installation services for a wide variety of items in homes and offices. From shelves, mirrors, and fixtures to electronics and home accessories, we make sure everything is installed correctly and securely. 
+                Our goal is to provide dependable workmanship, attention to detail, and hassle‑free service you can trust..</p>
+            </div>
+        </div>
+    </div>
+    </div>
+        <div id="social" class="section">
+        <h2>Follow Us</h2>
+        <p>Stay connected and see what we’re up to</p>
+   
+           <div class="social-icons">
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i>
+</a>
+    
+    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+</div>
+
+      
     </div>
 </section>
 
@@ -72,11 +105,76 @@
     <h1 class="animate">Contact Us</h1>
     <p class="animate">Email: johndoe@aol.com.com</p>
     <p class="animate">Phone: +123 456 7890</p>
+       <div class="logopic">
+        <img src="MMlogo.png" style="width:150px;" alt="Mountain Movers Logo">
+
+    </div>
+  
+    <div class="jumbotron">
+        <h1 class="animate">Schedule an Appointment</h1>
+       
+        <!-- <div class="form-wrapper"> -->
+<form action="#" method="post">
+
+    <div class="form-grid">
+
+        <div class="form-field">
+            <input type="text" name="first_name" placeholder=" " required>
+            <label>First Name</label>
+        </div>
+
+        <div class="form-field">
+            <input type="text" name="last_name" placeholder=" " required>
+            <label>Last Name</label>
+        </div>
+
+        <div class="form-field">
+            <input type="tel" name="phone" placeholder=" " required>
+            <label>Phone Number</label>
+        </div>
+
+        <div class="form-field">
+            <input type="text" name="zip" placeholder=" " required>
+            <label>Zip Code</label>
+        </div>
+
+        <div class="form-field full-width">
+            <textarea name="description" placeholder=" "></textarea>
+            <label>Description</label>
+        </div>
+
+        <!-- Services -->
+        <div class="checkbox-field full-width">
+            <label class="title">Services</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="services[]" value="Half Service"> Half Service</label>
+                <label><input type="checkbox" name="services[]" value="Full Service"> Full Service</label>
+                <label><input type="checkbox" name="services[]" value="TV Mounting"> TV Mounting</label>
+            </div>
+        </div>
+
+        <div class="full-width button-row">
+            <button type="submit">Submit</button>
+            <button type="reset">Clear</button>
+        </div>
+
+    </div>
+
+</form>
+
+    </div>
+
+ 
+
 </section>
 
 </main>
 
 <footer>
+       <div class="image-row">
+        <img src="MMlogo.png"  class="animated-img">
+       
+    </div>
     <p>© 2026 Moving Mountains. All Rights Reserved.</p>
 </footer>
 
