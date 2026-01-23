@@ -1,3 +1,4 @@
+
 /* ================= Reset & Box Sizing ================= */
 * {
     margin: 0;
@@ -5,12 +6,8 @@
     box-sizing: border-box;
 }
 
-/* ================= Container ================= */
-.container {
-    width: 1200px;
-    min-width: 1200px; /* Prevent shrinking on mobile */
-    margin: 0 auto;
-    overflow-x: auto; /* Allow horizontal scroll on small screens */
+html { 
+    -webkit-text-size-adjust: 100%; /* prevent iOS auto-zooming text */
 }
 
 /* ================= Global Styles ================= */
@@ -18,11 +15,17 @@ body {
     background: black;
     color: white;
     font-family: 'Segoe UI', Arial, sans-serif;
-    overflow-x: auto; /* Ensure horizontal scroll on mobile */
+    overflow-x: hidden; /* no sideways scroll; we scale on mobile instead */
 }
 
-p {
-    color: white;
+p { color: white; }
+
+/* ================= Container ================= */
+.container {
+    width: 1200px;
+    min-width: 1200px; /* preserve desktop canvas */
+    margin: 0 auto;
+    /* No horizontal scroll tricks needed when we scale on mobile */
 }
 
 /* ================= Buttons ================= */
@@ -31,18 +34,17 @@ p {
     padding: 16px 36px;
     font-size: 1.1em;
     font-weight: bold;
-    color: #fff;
-    background: gray;
-    border-radius: 50px;
+    color: black;
+    background: white;
+    border-radius: 20px;
     text-decoration: none;
     letter-spacing: 0.5px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .cta-btn:hover {
     transform: translateY(-4px);
-    box-shadow: white;
+    /* keep original box-shadow; removed invalid 'white' assignment */
 }
 
 /* ================= Section Titles ================= */
@@ -65,7 +67,8 @@ div.section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
+    /* iOS-safe viewport height */
+    height: 100svh;
 }
 
 #hero h1 {
@@ -230,9 +233,7 @@ div.section {
 }
 
 /* ================= Floating Logo ================= */
-.logopic {
-    float: right;
-}
+.logopic { float: right; }
 
 /* ================= Form Styles ================= */
 .form-wrapper {
@@ -250,9 +251,7 @@ div.section {
     gap: 20px;
 }
 
-.form-field {
-    position: relative;
-}
+.form-field { position: relative; }
 
 .form-field input[type="text"],
 .form-field input[type="tel"],
@@ -298,9 +297,7 @@ div.section {
     border-color: #6c757d;
 }
 
-.full-width {
-    grid-column: span 2;
-}
+.full-width { grid-column: span 2; }
 
 .checkbox-field {
     display: flex;
@@ -396,8 +393,6 @@ button:hover {
     cursor: pointer;
 }
 
-
-
 /* Full-page Slide Underline */
 .slide-underline {
     position: relative;
@@ -422,13 +417,6 @@ button:hover {
 }
 
 @keyframes drawLine {
-    to {
-        transform: scaleX(1);
-    }
-}
-
-
-@keyframes drawLine {
     to { transform: scaleX(1); }
 }
 
@@ -450,10 +438,7 @@ main {
     margin-top:-30px;
 }
 
-.page {
-    display: none;
-}
-
+.page { display: none; }
 .page.active {
     display: block;
     animation: fadeIn 0.8s ease;
@@ -510,9 +495,7 @@ main {
 }
 
 /* ================= Banner ================= */
-.banner {
-    margin-top: 80px;
-}
+.banner { margin-top: 80px; }
 
 .banner-img {
     width: 100%;
@@ -530,28 +513,54 @@ footer {
 }
 
 /* ================= Animations ================= */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 @keyframes textFade {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes imageFade {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bannerFade { to { opacity: 1; } }
+
+/* ===================================================== */
+/* =================== MOBILE DESKTOP-LOCK ============= */
+/* Scale desktop layout on small screens WITHOUT stacking */
+/* ===================================================== */
+@media screen and (max-width: 768px) {
+    /* Respect iPhone notches/home-bar */
+    body {
+        padding:
+            env(safe-area-inset-top, 0)
+            env(safe-area-inset-right, 0)
+            env(safe-area-inset-bottom, 0)
+            env(safe-area-inset-left, 0);
+    }
+
+    /* Scale the entire page proportionally */
+    html, body { overflow-x: hidden; }
+
+    /* TUNE THIS SCALE to taste:
+       0.75 (smaller), 0.8, 0.85, 0.9 (larger) */
+    body {
+        transform: scale(0.85);
+        transform-origin: top left;
+        /* Expand the logical width so scaled content fills the viewport */
+        width: 118%;
+    }
+
+    /* Prevent flex rows from wrapping on mobile */
+    .services-container,
+    .image-row,
+    .checkbox-group {
+        flex-wrap: nowrap;
+    }
+
+    /* Preserve your 2-column form grid (no stacking) */
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
     }
 }
-
-@keyframes bannerFade {
-    to { opacity: 1; }
-}
-
-/* ================= MOBILE ================= */
-/* No mobile overrides – keep desktop layout on all screen sizes */
+/* ================= END MOBILE DESKTOP-LOCK =========== */
