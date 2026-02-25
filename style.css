@@ -1,4 +1,3 @@
-
 /* ================= Reset & Box Sizing ================= */
 * {
     margin: 0;
@@ -7,7 +6,7 @@
 }
 
 html { 
-    -webkit-text-size-adjust: 100%; /* prevent iOS auto-zooming text */
+    -webkit-text-size-adjust: 100%;
 }
 
 /* ================= Global Styles ================= */
@@ -15,18 +14,10 @@ body {
     background: black;
     color: white;
     font-family: 'Segoe UI', Arial, sans-serif;
-    overflow-x: hidden; /* no sideways scroll; we scale on mobile instead */
+    overflow-x: hidden;
 }
 
 p { color: white; }
-
-/* ================= Container ================= */
-.container {
-    width: 1200px;
-    min-width: 1200px; /* preserve desktop canvas */
-    margin: 0 auto;
-    /* No horizontal scroll tricks needed when we scale on mobile */
-}
 
 /* ================= Buttons ================= */
 .cta-btn {
@@ -42,15 +33,9 @@ p { color: white; }
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .cta-btn:hover {
     transform: translateY(-4px);
-    /* keep original box-shadow; removed invalid 'white' assignment */
-}
-
-/* ================= Section Titles ================= */
-#services h1,
-#services h2 {
-    color: white !important;
 }
 
 /* ================= Sections ================= */
@@ -67,29 +52,7 @@ div.section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* iOS-safe viewport height */
     height: 100svh;
-}
-
-#hero h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-}
-
-#hero p {
-    font-size: 1.2em;
-    margin-bottom: 40px;
-}
-
-#hero a {
-    display: inline-block;
-    padding: 15px 30px;
-    font-size: 1em;
-    color: white;
-    background-color: #ff5722;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
 
 #hero::before {
@@ -104,33 +67,14 @@ div.section {
     z-index: 1;
 }
 
-#hero a:hover {
-    background-color: #e64a19;
+#hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
 }
 
-/* ================= Social Section ================= */
-#social {
-    background-color: #111;
-    color: white;
-    margin-top: 15px;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.social-icons a {
-    color: white;
-    font-size: 2.2em;
-    transition: transform 0.3s, color 0.3s;
-}
-
-.social-icons a:hover {
-    transform: translateY(-5px);
-    color: #ff5722;
+#hero p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
 }
 
 /* ================= Services Section ================= */
@@ -157,14 +101,9 @@ div.section {
     z-index: 1;
 }
 
-#services h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-}
-
 #services .services-container {
     display: flex;
-    flex-wrap: nowrap; /* Keep horizontal layout */
+    flex-wrap: nowrap;
     justify-content: center;
     gap: 30px;
 }
@@ -173,76 +112,30 @@ div.section {
     background-color: rgba(0, 0, 0, 0.6);
     padding: 30px;
     border-radius: 10px;
-    width: 250px; /* fixed width */
+    width: 250px;
 }
 
-#services .service i {
-    font-size: 2.5em;
-    margin-bottom: 15px;
-    color: white;
-}
-
-#services .service h3 {
-    margin-bottom: 10px;
-    font-size: 1.5em;
-}
-
-#services .service p {
-    font-size: 1em;
-}
-
-/* ================= Contact Section ================= */
-#contact {
-    background-color: black;
-    color: white;
-}
-
-#contact h2 {
-    margin-bottom: 20px;
-}
-
-#contact form {
-    max-width: 600px;
-    margin: 0 auto;
+/* ================= Images ================= */
+.image-row {
     display: flex;
-    flex-direction: column;
     gap: 15px;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 10px;
 }
 
-#contact input, #contact textarea {
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1em;
+.animated-img {
+    width: 300px;
+    border-radius: 12px;
 }
 
-#contact button {
-    padding: 15px;
-    border: none;
-    background-color: black;
-    color: white;
-    font-size: 1em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#contact button:hover {
-    background-color: white;
-    color: black;
-}
-
-/* ================= Floating Logo ================= */
-.logopic { float: right; }
-
-/* ================= Form Styles ================= */
+/* ================= Form ================= */
 .form-wrapper {
     max-width: 800px;
     margin: auto;
     background-color: darkgrey;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .form-grid {
@@ -251,77 +144,12 @@ div.section {
     gap: 20px;
 }
 
-.form-field { position: relative; }
-
-.form-field input[type="text"],
-.form-field input[type="tel"],
-.form-field textarea {
-    width: 100%;
-    padding: 14px 12px;
-    font-size: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background: white;
-}
-
-.form-field textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-.form-field label {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #fff;
-    padding: 0 4px;
-    color: #6c757d;
-    font-size: 14px;
-    pointer-events: none;
-    transition: 0.2s ease;
-}
-
-.form-field input:focus + label,
-.form-field input:not(:placeholder-shown) + label,
-.form-field textarea:focus + label,
-.form-field textarea:not(:placeholder-shown) + label {
-    top: -8px;
-    font-size: 12px;
-    color: #495057;
-}
-
-.form-field input:focus,
-.form-field textarea:focus {
-    outline: none;
-    border-color: #6c757d;
-}
-
 .full-width { grid-column: span 2; }
-
-.checkbox-field {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.checkbox-field label.title {
-    font-weight: 600;
-    margin-bottom: 6px;
-    text-align: left;
-    color: white;
-}
 
 .checkbox-group {
     display: flex;
     gap: 20px;
     flex-wrap: nowrap;
-}
-
-.checkbox-group label {
-    font-weight: normal;
-    cursor: pointer;
-    color: white;
 }
 
 .button-row {
@@ -330,58 +158,38 @@ div.section {
     gap: 15px;
 }
 
-button {
-    padding: 10px 22px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    color: #6c757d;
-    background-color: #fff;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #5a6268;
-    color:white;
-}
-
-/* ================= Marquee Text ================= */
-.sub-banner-content {
-    white-space: nowrap;
-    animation: marquee 18s linear infinite;
-    font-size: x-large;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    margin-top: 25px;
-}
-
-@keyframes marquee {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
-}
-
-/* ================= Header / Ribbon ================= */
+/* ================= Header ================= */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
 }
 
 .logo img {
     width: 42px;
     margin-right: 10px;
 }
+/* ================= Header Logo + Marquee Alignment ================= */
 
-/* ================= Navigation with Slide Underline ================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sub-banner-content {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: x-large;
+    font-weight: 700;
+    animation: marquee 18s linear infinite;
+    font-family: 'Montserrat', sans-serif;
+}
+/* ================= Navigation & Slide Underline ================= */
 .nav button {
-    position: relative; /* required for slide underline */
+    position: relative;
     background: none;
     border: none;
     color: white;
@@ -389,38 +197,10 @@ button:hover {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     margin-left: 30px;
-    padding-bottom: 4px; /* space for underline */
+    padding-bottom: 4px;
     cursor: pointer;
 }
 
-/* Full-page Slide Underline */
-.slide-underline {
-    position: relative;
-    width: 100%;
-    height: 4px; /* line thickness */
-    overflow: hidden;
-    background: transparent;
-    margin: 0 auto; /* center if needed */
-}
-
-.slide-underline::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-color: white; /* visible line */
-    transform: scaleX(0);
-    transform-origin: left;
-    animation: drawLine 1.5s ease-out forwards;
-}
-
-@keyframes drawLine {
-    to { transform: scaleX(1); }
-}
-
-/* Optional hover underline */
 .nav button:hover::after {
     content: '';
     position: absolute;
@@ -432,78 +212,90 @@ button:hover {
     transition: width 0.3s ease;
 }
 
-/* ================= Pages ================= */
+/* Full-width underline line across top */
+.slide-underline {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    overflow: hidden;
+    background: transparent;
+    margin: 0 auto;
+}
+
+.slide-underline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: drawLine 1.5s ease-out forwards;
+}
+
+@keyframes drawLine {
+    to { transform: scaleX(1); }
+}
+
+/* ================= Marquee Scrolling Header ================= */
+.sub-banner-content {
+    overflow: hidden;
+    width: 100%;
+    background: black;
+    margin-top: 25px;
+    white-space: nowrap;
+}
+
+.sub-banner-content span {
+    display: inline-block;
+    padding-left: 100%;
+    color: white;
+    font-size: x-large;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    animation: marquee 12s linear infinite;
+}
+
+@keyframes marquee {
+    0%   { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* ================= Social Media Icons ================= */
+#social {
+    background-color: #111;
+    color: white;
+    margin-top: 15px;
+    padding: 40px 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 2.2em;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px);
+    color: #ff5722;
+}
+
+/* ================= Main ================= */
 main {
-    padding: 80px 15%;
-    margin-top:-30px;
+    padding: 80px 5%;
+    margin-top: -30px;
 }
 
 .page { display: none; }
-.page.active {
-    display: block;
-    animation: fadeIn 0.8s ease;
-}
-
-/* ================= Jumbotron ================= */
-.jumbotron {
-    padding: 120px 20px;
-    text-align: center;
-    background-color: darkgrey;
-    color:white;
-}
-
-.jumbotron h1 {
-    margin-bottom: 25px;
-    text-align: center;
-    font-size: 40px;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    margin-left: 100px;
-}
-
-.jumbotron p {
-    color: white;
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: auto;
-}
-
-/* ================= Images ================= */
-.image-row {
-    display: flex;
-    gap: 15px;
-    flex-wrap: nowrap; /* keep horizontal on mobile */
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.animated-img {
-    width: 300px;
-    border-radius: 12px;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: imageFade 1s forwards;
-}
-
-/* ================= Text Animation ================= */
-.animate {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: textFade 1s forwards;
-    color: white;
-}
-
-/* ================= Banner ================= */
-.banner { margin-top: 80px; }
-
-.banner-img {
-    width: 100%;
-    height: 60vh;
-    object-fit: cover;
-    opacity: 0;
-    animation: bannerFade 1.5s forwards;
-}
+.page.active { display: block; }
 
 /* ================= Footer ================= */
 footer {
@@ -512,55 +304,60 @@ footer {
     color: #666;
 }
 
-/* ================= Animations ================= */
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+/* ================= Mobile Responsiveness ================= */
+@media (max-width: 768px) {
 
-@keyframes textFade {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes imageFade {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes bannerFade { to { opacity: 1; } }
-
-/* ===================================================== */
-/* =================== MOBILE DESKTOP-LOCK ============= */
-/* Scale desktop layout on small screens WITHOUT stacking */
-/* ===================================================== */
-@media screen and (max-width: 768px) {
-    /* Respect iPhone notches/home-bar */
-    body {
-        padding:
-            env(safe-area-inset-top, 0)
-            env(safe-area-inset-right, 0)
-            env(safe-area-inset-bottom, 0)
-            env(safe-area-inset-left, 0);
+    .container {
+        width: 100%;
+        padding: 0 20px;
     }
 
-    /* Scale the entire page proportionally */
-    html, body { overflow-x: hidden; }
-
-    /* TUNE THIS SCALE to taste:
-       0.75 (smaller), 0.8, 0.85, 0.9 (larger) */
-    body {
-        transform: scale(0.85);
-        transform-origin: top left;
-        /* Expand the logical width so scaled content fills the viewport */
-        width: 118%;
+    #hero {
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 40px 20px;
     }
 
-    /* Prevent flex rows from wrapping on mobile */
-    .services-container,
-    .image-row,
-    .checkbox-group {
-        flex-wrap: nowrap;
+    #hero h1 {
+        font-size: 2rem;
     }
 
-    /* Preserve your 2-column form grid (no stacking) */
+    #services .services-container {
+        flex-wrap: wrap;
+    }
+
+    #services .service {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .image-row {
+        flex-wrap: wrap;
+    }
+
+    .animated-img {
+        width: 100%;
+        max-width: 100%;
+    }
+
     .form-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: span 1;
+    }
+
+    .checkbox-group {
+        flex-wrap: wrap;
+    }
+
+    .button-row {
+        justify-content: center;
+    }
+
+    .nav button {
+        margin-left: 15px;
     }
 }
-/* ================= END MOBILE DESKTOP-LOCK =========== */

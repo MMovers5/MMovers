@@ -1,33 +1,31 @@
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+  <entity name="appointment">
+    <attribute name="subject" />
+    <attribute name="statecode" />
+    <attribute name="scheduledstart" />
+    <attribute name="scheduledend" />
+    <attribute name="createdby" />
+    <attribute name="regardingobjectid" />
+    <attribute name="activityid" />
+    <attribute name="instancetypecode" />
+    <order attribute="subject" descending="false" />
+    <filter type="and">
+      <condition attribute="regardingobjectid" operator="eq" uitype="lead" value="@{triggerOutputs()?['body/_originatingleadid_value']}" />
+    </filter>
+  </entity>
+</fetch>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Moving Mountains - Contact</title>
-    style.css
-</head>
-<body>
-
-<nav>
-    images/logo.png
-    <div>
-        index.htmlHome</a>
-        services.htmlServices</a>
-        contact.htmlContact</a>
-    </div>
-</nav>
-
-<div class="section">
-    <h1>Contact Us</h1>
-    <p>Fill out the form below and we’ll get back to you shortly.</p>
-
-    <form>
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Email">
-        <textarea rows="6" placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-</div>
-
-</body>
-</html>
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+  <entity name="annotation">
+    <attribute name="subject" />
+    <attribute name="notetext" />
+    <attribute name="filename" />
+    <attribute name="annotationid" />
+    <order attribute="subject" descending="false" />
+    <link-entity name="lead" from="leadid" to="objectid" link-type="inner" alias="ab">
+      <filter type="and">
+        <condition attribute="regardingobjectid" operator="eq" uitype="lead" value="@{triggerOutputs()?['body/_originatingleadid_value']}" />
+      </filter>
+    </link-entity>
+  </entity>
+</fetch>
