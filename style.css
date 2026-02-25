@@ -25,7 +25,10 @@ p { color: white; }
     padding: 16px 36px;
     font-size: 1.1em;
     font-weight: bold;
+    width:500px;
     color: black;
+    align-self: center;
+    margin-top: 60px;
     background: white;
     border-radius: 20px;
     text-decoration: none;
@@ -47,12 +50,12 @@ div.section {
 
 /* ================= Hero Section ================= */
 #hero {
-    background: url('/truck.png') no-repeat center center / cover;
+    background: url('/service.png') no-repeat center center / cover;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100svh;
+    height: 650px;
 }
 
 #hero::before {
@@ -80,7 +83,7 @@ div.section {
 /* ================= Services Section ================= */
 #services {
     position: relative;
-    background: url('/cartoon.png') no-repeat center center/cover;
+    background: url('/service.png') no-repeat center center/cover;
     color: white;
     overflow: hidden;
     margin-top: 20px;
@@ -165,9 +168,12 @@ div.section {
     align-items: center;
     padding: 20px 40px;
 }
-
+.logo span{
+    font-weight: bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 .logo img {
-    width: 42px;
+    width: 62px;
     margin-right: 10px;
 }
 /* ================= Header Logo + Marquee Alignment ================= */
